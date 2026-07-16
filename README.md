@@ -1,4 +1,4 @@
-# RAGi��动问答智能体 - GitOps仓库
+# RAG驱动的问答智能体
 
 本仓库用于 RAG（Retrieval-Augmented Generation）问答智能体项目的全部 Kubernetes 清单、知识库文档及部署配置。
 
