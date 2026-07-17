@@ -8,6 +8,13 @@ spec:
   storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   hostPath: { path: "/data/milvus-etcd", type: DirectoryOrCreate }
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values: [k8s-node3]
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -19,6 +26,13 @@ spec:
   storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   hostPath: { path: "/data/milvus-minio", type: DirectoryOrCreate }
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values: [k8s-node3]
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -30,3 +44,10 @@ spec:
   storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   hostPath: { path: "/data/milvus-standalone", type: DirectoryOrCreate }
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values: [k8s-node3]
