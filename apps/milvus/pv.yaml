@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: milvus-etcd-pv
+spec:
+  capacity: { storage: 10Gi }
+  accessModes: [ReadWriteOnce]
+  storageClassName: ""
+  persistentVolumeReclaimPolicy: Retain
+  hostPath: { path: "/data/milvus-etcd", type: DirectoryOrCreate }
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: milvus-minio-pv
+spec:
+  capacity: { storage: 20Gi }
+  accessModes: [ReadWriteOnce]
+  storageClassName: ""
+  persistentVolumeReclaimPolicy: Retain
+  hostPath: { path: "/data/milvus-minio", type: DirectoryOrCreate }
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: milvus-standalone-pv
+spec:
+  capacity: { storage: 50Gi }
+  accessModes: [ReadWriteOnce]
+  storageClassName: ""
+  persistentVolumeReclaimPolicy: Retain
+  hostPath: { path: "/data/milvus-standalone", type: DirectoryOrCreate }
