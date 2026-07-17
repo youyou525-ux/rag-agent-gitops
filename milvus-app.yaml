@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: milvus
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/youyou525-ux/rag-agent-gitops'
+    targetRevision: HEAD
+    path: apps/milvus
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: milvus
+  syncPolicy:
+    automated: { prune: true, selfHeal: true }
+    syncOptions:
+    - CreateNamespace=true
